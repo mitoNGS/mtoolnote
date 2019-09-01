@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 # Created by Roberto Preste
-import vcfpy2 as vcfpy
+# import vcfpy2 as vcfpy
+import vcfpy
 from abc import ABC, abstractmethod
 
 _SPECIES = ("oaries", "ptroglodytes", "scerevisiae", "ecaballus", "fcatus",

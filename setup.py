@@ -10,7 +10,7 @@ with open("HISTORY.rst") as history_file:
     history = history_file.read()
 
 requirements = ["Click>=7.0", "pandas>=0.23.4", "requests>=2.20.1",
-                "aiohttp>=3.4.4", "vcfpy2==0.1.2", "sqlalchemy>=1.2.16",
+                "aiohttp>=3.4.4", "vcfpy==0.12.1", "sqlalchemy>=1.2.16",
                 "apybiomart==0.3.5"]
 
 setup_requirements = ["pytest-runner", ]
