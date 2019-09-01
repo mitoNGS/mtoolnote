@@ -230,3 +230,7 @@ Temporary Items
 pyvenv.cfg
 .venv
 pip-selfcheck.json
+
+envs 
+tests/data/test.vcf
+.vscode 
