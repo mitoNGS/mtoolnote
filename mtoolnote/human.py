@@ -107,6 +107,7 @@ class HumanAnnotator(Annotator):
         _update_header()
         _is_variation()
         annotate()
+        to_csv()
     """
 
     _HEADERS = (("Locus", "locus", "Locus to which the variant belongs"),
@@ -126,6 +127,7 @@ class HumanAnnotator(Annotator):
         """Annotate variants found in the input vcf."""
         # session = self.Session()
         for record in self._reader:
+            self._n_alleles.append(len(record.ALT))
             fields = [Field(head[0], head[1], head[2]) for head in self.headers]
             if self._is_variation(record):
                 annots = HumanParser(record, fields, self.session)

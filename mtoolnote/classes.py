@@ -2,7 +2,10 @@
 # -*- coding: UTF-8 -*-
 # Created by Roberto Preste
 # import vcfpy2 as vcfpy
+import os
 import vcfpy
+import allel
+from collections import defaultdict
 from abc import ABC, abstractmethod
 
 _SPECIES = ("oaries", "ptroglodytes", "scerevisiae", "ecaballus", "fcatus",
@@ -144,17 +147,18 @@ class Annotator(ABC):
         _update_header()
         _is_variation()
         annotate()
+        to_csv()
     """
 
     def __init__(self, input_vcf, output_vcf, headers):
         self.input_vcf = input_vcf
         self.output_vcf = output_vcf
-        # self.headers = headers
         self.headers = headers
         self._reader = vcfpy.Reader.from_path(self.input_vcf)
         self._update_header()
         self._writer = vcfpy.Writer.from_path(self.output_vcf,
                                               header=self._reader.header)
+        self._n_alleles = []
 
     def _update_header(self):
         """Update vcf header according to the new annotations."""
@@ -178,3 +182,31 @@ class Annotator(ABC):
     def annotate(self):
         """Annotate variants found in the input vcf."""
         pass
+
+    def to_csv(self):
+        """Convert the annotated VCF file to CSV format."""
+        base_path, base_name = os.path.split(self.output_vcf)
+        csv_name = os.path.splitext(base_name)[0]
+        output_csv = os.path.join(base_path, "{}.csv".format(csv_name))
+
+        df = allel.vcf_to_dataframe(self.output_vcf, fields="*",
+                                    alt_number=max(self._n_alleles))
+
+        df.fillna(".", inplace=True)
+        to_merge = [col for col in df.columns
+                    if "_" in col and col.split("_")[-1].isdigit()]
+        # dictionary of new columns names -> columns to merge
+        col_dict = defaultdict(list)
+        for col in to_merge:
+            new_col = "_".join(col.split("_")[:-1])
+            col_dict[new_col].append(col)
+        # merge columns and drop duplicate columns
+        for new_col, old_cols in col_dict.items():
+            # get index of the first column of the set to be merged
+            col_idx = df.columns.get_loc(old_cols[0])
+            merged_col = df[old_cols].astype(str).apply(lambda x: ";".join(x),
+                                                        axis=1)
+            df.drop(old_cols, axis=1, inplace=True)
+            df.insert(loc=col_idx, column=new_col, value=merged_col.values)
+
+        df.to_csv(output_csv, index=False)
