@@ -231,6 +231,7 @@ pyvenv.cfg
 .venv
 pip-selfcheck.json
 
-envs 
+envs
 tests/data/test.vcf
-.vscode 
+tests/data/test.csv
+.vscode
