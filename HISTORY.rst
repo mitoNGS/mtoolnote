@@ -6,3 +6,8 @@ History
 ==================
 
 * First development release.
+
+0.1.1 (2019-09-02)
+------------------
+
+* Add option to create csv from annotated vcf file.
