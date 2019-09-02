@@ -17,10 +17,10 @@ GGALLUS_ANN = os.path.join(DATADIR, "ggallus_ann.vcf")
 def main():
     """Create the test files needed."""
     click.echo("\n--- Human VCF test file ---\n")
-    annotate(HUMAN, HUMAN_ANN)
+    annotate(HUMAN, HUMAN_ANN, csv=True)
     click.echo("\tAnnotation complete.")
     click.echo("\n--- GGallus VCF test file ---\n")
-    annotate(GGALLUS, GGALLUS_ANN, "ggallus")
+    annotate(GGALLUS, GGALLUS_ANN, "ggallus", csv=True)
     click.echo("\tAnnotation complete.")
 
 

@@ -107,6 +107,7 @@ class NonHumanAnnotator(Annotator):
         _is_variation()
         _format_values()
         annotate()
+        to_csv()
     """
 
     _HEADERS = (("Locus", "Gene stable ID",
@@ -149,6 +150,7 @@ class NonHumanAnnotator(Annotator):
         write clean strings to the annotated vcf.
         """
         for record in self._reader:
+            self._n_alleles.append(len(record.ALT))
             fields = [Field(head[0], head[1], head[2])
                       for head in self.headers]
             if self._is_variation(record):

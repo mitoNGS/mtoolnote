@@ -1,7 +1,7 @@
 ##fileformat=VCFv4.0
 ##FILTER=<ID=PASS,Description="All filters passed">
 ##reference=NC_001323.1
-##FORMAT=<ID=GT,Number=.,Type=String,Description="Genotype">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
 ##FORMAT=<ID=DP,Number=.,Type=Integer,Description="Reads covering the REF position">
 ##FORMAT=<ID=HF,Number=.,Type=Float,Description="Heteroplasmy Frequency of variant allele">
 ##FORMAT=<ID=CILOW,Number=.,Type=Float,Description="Value defining the lower limit of the confidence interval of the heteroplasmy fraction">
