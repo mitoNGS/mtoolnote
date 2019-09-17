@@ -11,3 +11,9 @@ History
 ------------------
 
 * Add option to create csv from annotated vcf file.
+
+0.1.2 (2019-09-17)
+------------------
+
+* Fix requirements;
+* Relocate local database for human annotation.
