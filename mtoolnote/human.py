@@ -5,6 +5,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from mtoolnote.classes import Annotator, Field, Variant, Parser
 from mtoolnote.models import Main
+from pkg_resources import resource_filename
 
 
 class HumanVariant(Variant):
@@ -116,7 +117,9 @@ class HumanAnnotator(Annotator):
                 ("AaChange", "aa_change", "Aminoacidic change determined"),
                 ("Pathogenicity", "pathogenicity",
                  "Pathogenicity predicted by HmtVar"))
-    engine = create_engine("sqlite:///data/hmtvar.db")
+    # engine = create_engine("sqlite:///data/hmtvar.db")
+    _dbfile = resource_filename(__name__, "data/hmtvar.db")
+    engine = create_engine(f"sqlite:///{_dbfile}")
     Session = sessionmaker(bind=engine)
 
     def __init__(self, input_vcf, output_vcf):
