@@ -9,9 +9,8 @@ with open("README.rst") as readme_file:
 with open("HISTORY.rst") as history_file:
     history = history_file.read()
 
-requirements = ["Click>=7.0", "pandas>=0.23.4", "requests>=2.20.1",
-                "aiohttp>=3.4.4", "vcfpy==0.12.1", "sqlalchemy>=1.2.16",
-                "apybiomart==0.3.5", "scikit-allel==1.2.1"]
+requirements = ["Click", "pandas", "requests", "aiohttp", "vcfpy", "sqlalchemy",
+                "apybiomart", "scikit-allel"]
 
 setup_requirements = ["pytest-runner", ]
 
@@ -39,10 +38,10 @@ setup(  # pragma: no cover
     license="MIT license",
     long_description=readme + "\n\n" + history,
     long_description_content_type="text/x-rst",
-    include_package_data=True,
     keywords="mtoolnote",
     name="mtoolnote",
     packages=find_packages(include=["mtoolnote"]),
+    include_package_data=True,
     setup_requires=setup_requirements,
     test_suite="tests",
     tests_require=test_requirements,
