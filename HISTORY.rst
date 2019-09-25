@@ -17,3 +17,8 @@ History
 
 * Fix requirements;
 * Relocate local database for human annotation.
+
+0.1.3 (2019-09-25)
+------------------
+
+* Add multi-threading processing for non-human annotations (fix #1).

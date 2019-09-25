@@ -2,6 +2,7 @@
 # -*- coding: UTF-8 -*-
 # Created by Roberto Preste
 import apybiomart as apy
+from concurrent.futures import ThreadPoolExecutor
 from mtoolnote.classes import Field, Variant, Parser, Annotator, _SPECIES
 
 
@@ -143,21 +144,33 @@ class NonHumanAnnotator(Annotator):
         else:
             return ["."]
 
+    def record_annotator(self, record):
+        """Annotate a single record. Convenience function to be used with
+        PoolExecutors.
+
+        Args:
+            record: input record to annotate
+        """
+        self._n_alleles.append(len(record.ALT))
+        fields = [Field(head[0], head[1], head[2])
+                  for head in self.headers]
+        if self._is_variation(record):
+            annots = NonHumanParser(record, fields, self.species)
+            annots.parse()
+            for field in fields:
+                record.INFO[field.element] = self._format_values(field.values)
+        return record
+
     def annotate(self):
         """Annotate variants found in the input vcf.
 
-        An additional parsing if done by the _format_values() method, to
+        An additional parsing is done by the _format_values() method, to
         write clean strings to the annotated vcf.
         """
-        for record in self._reader:
-            self._n_alleles.append(len(record.ALT))
-            fields = [Field(head[0], head[1], head[2])
-                      for head in self.headers]
-            if self._is_variation(record):
-                annots = NonHumanParser(record, fields, self.species)
-                annots.parse()
-                for field in fields:
-                    record.INFO[field.element] = self._format_values(field.values)
-            self._writer.write_record(record)
+        with ThreadPoolExecutor() as executor:
+            for el in executor.map(self.record_annotator,
+                                   [record for record in self._reader]):
+                self._writer.write_record(el)
+
         self._reader.close()
         self._writer.close()
