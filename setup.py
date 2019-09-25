@@ -9,8 +9,8 @@ with open("README.rst") as readme_file:
 with open("HISTORY.rst") as history_file:
     history = history_file.read()
 
-requirements = ["Click", "pandas", "requests", "aiohttp", "vcfpy", "sqlalchemy",
-                "apybiomart", "scikit-allel"]
+requirements = ["Click", "pandas", "requests", "aiohttp", "pysam", "vcfpy",
+                "sqlalchemy", "apybiomart", "scikit-allel"]
 
 setup_requirements = ["pytest-runner", ]
 
