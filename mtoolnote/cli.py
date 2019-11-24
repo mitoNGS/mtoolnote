@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 # Created by Roberto Preste
-import sys
 import click
+import sys
+
 from mtoolnote.classes import _SPECIES
 from mtoolnote.human import HumanAnnotator
 from mtoolnote.nonhuman import NonHumanAnnotator
