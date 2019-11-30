@@ -2,7 +2,6 @@
 # -*- coding: UTF-8 -*-
 # Created by Roberto Preste
 import click
-import pytest
 import os
 from mtoolnote import annotate
 
