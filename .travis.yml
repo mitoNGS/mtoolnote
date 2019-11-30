@@ -1,5 +1,10 @@
 # Config file for automatic testing at travis-ci.com
 
+# safelist
+branches:
+  only:
+  - master
+
 language: python
 python:
   - 3.6
