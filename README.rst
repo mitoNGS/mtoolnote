@@ -23,9 +23,9 @@ mtoolnote can annotate mitochondrial variants from:
 * human genomes, using data stored in a local database derived from HmtVar_;
 * non-human genomes, using data from BioMart_.
     - Currently, only the following species are supported: oaries, ptroglodytes, scerevisiae
-    ecaballus, fcatus, cfamiliaris, pabelii, ggallus, mmulatta, rnorvegicus, btaurus,
-    oanatinus, sscrofa, nleucogenys, chircus, mmusculus, tguttata, tnigroviridis,
-    mgallopavo, mdomestica, drerio
+        ecaballus, fcatus, cfamiliaris, pabelii, ggallus, mmulatta, rnorvegicus, btaurus,
+        oanatinus, sscrofa, nleucogenys, chircus, mmusculus, tguttata, tnigroviridis,
+        mgallopavo, mdomestica, drerio
 
 Usage
 =====
