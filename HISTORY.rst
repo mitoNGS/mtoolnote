@@ -22,3 +22,9 @@ History
 ------------------
 
 * Add multi-threading processing for non-human annotations (fix #1).
+
+0.1.4 (2019-11-30)
+------------------
+
+* Add haplogroup-specific allele frequencies to final annotations (fix #4);
+* Add external predictors to final annotations (fix #5).
