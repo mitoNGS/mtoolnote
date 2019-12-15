@@ -6,10 +6,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 from mtoolnote.classes import Annotator, Field, Variant, Parser
-from mtoolnote.constants import (
-    HEADERS_MAIN, HEADERS_CROSSREF, HEADER_PREDICT, HEADERS_VARIAB,
-    HEADERS_HAPLOS
-)
+from mtoolnote.constants import HUMAN_HEADERS
 from mtoolnote.models import (
     Main, CrossRef, Predict, Variab,
     Haplo_A, Haplo_B, Haplo_D, Haplo_G, Haplo_JT, Haplo_L0, Haplo_L1,
@@ -183,8 +180,7 @@ class HumanAnnotator(Annotator):
         annotate()
         to_csv()
     """
-    _HEADERS = (*HEADERS_MAIN, *HEADER_PREDICT, *HEADERS_VARIAB,
-                *HEADERS_CROSSREF, *HEADERS_HAPLOS)
+    _HEADERS = HUMAN_HEADERS
     _dbfile = resource_filename(__name__, "data/hmtvar.db")
     engine = create_engine(f"sqlite:///{_dbfile}")
     Session = sessionmaker(bind=engine)

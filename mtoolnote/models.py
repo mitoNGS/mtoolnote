@@ -47,11 +47,11 @@ class Main(Base):
         }
 
     def __repr__(self):
-        return """Main(id: {self.id}, group: {self.group}, 
-        nt_start: {self.nt_start}, 
-        ref_rCRS: {self.ref_rCRS}, alt: {self.alt}, nt_end: {self.nt_end}, 
-        locus: {self.locus}, codon_position: {self.codon_position}, 
-        aa_change: {self.aa_change}, disease_score: {self.disease_score}, 
+        return """Main(id: {self.id}, group: {self.group},
+        nt_start: {self.nt_start},
+        ref_rCRS: {self.ref_rCRS}, alt: {self.alt}, nt_end: {self.nt_end},
+        locus: {self.locus}, codon_position: {self.codon_position},
+        aa_change: {self.aa_change}, disease_score: {self.disease_score},
         pathogenicity: {self.pathogenicity})\n""".format(self=self)
 
 
@@ -194,14 +194,14 @@ class Variab(Base):
         }
 
     def __repr__(self):
-        return """Variab(id: {self.id}, group: {self.group}, nt_var: {self.nt_var}, 
-        nt_var_patients: {self.nt_var_patients}, aa_var: {self.aa_var}, 
-        aa_var_patients: {self.aa_var_patients}, all_freq_h: {self.all_freq_h}, 
-        all_freq_h_AF: {self.all_freq_h_AF}, all_freq_h_AM: {self.all_freq_h_AM}, 
-        all_freq_h_AS: {self.all_freq_h_AS}, all_freq_h_EU: {self.all_freq_h_EU}, 
-        all_freq_h_OC: {self.all_freq_h_OC}, all_freq_p: {self.all_freq_p}, 
-        all_freq_p_AF: {self.all_freq_p_AF}, all_freq_p_AM: {self.all_freq_p_AM}, 
-        all_freq_p_AS: {self.all_freq_p_AS}, all_freq_p_EU: {self.all_freq_p_EU}, 
+        return """Variab(id: {self.id}, group: {self.group}, nt_var: {self.nt_var},
+        nt_var_patients: {self.nt_var_patients}, aa_var: {self.aa_var},
+        aa_var_patients: {self.aa_var_patients}, all_freq_h: {self.all_freq_h},
+        all_freq_h_AF: {self.all_freq_h_AF}, all_freq_h_AM: {self.all_freq_h_AM},
+        all_freq_h_AS: {self.all_freq_h_AS}, all_freq_h_EU: {self.all_freq_h_EU},
+        all_freq_h_OC: {self.all_freq_h_OC}, all_freq_p: {self.all_freq_p},
+        all_freq_p_AF: {self.all_freq_p_AF}, all_freq_p_AM: {self.all_freq_p_AM},
+        all_freq_p_AS: {self.all_freq_p_AS}, all_freq_p_EU: {self.all_freq_p_EU},
         all_freq_p_OC: {self.all_freq_p_OC})\n""".format(self=self)
 
 
@@ -229,10 +229,10 @@ class Plasmy(Base):
         }
 
     def __repr__(self):
-        return """Plasmy(id: {self.id}, group: {self.group}, 
-        mitomap_homo: {self.mitomap_homo}, mitomap_hetero: {self.mitomap_hetero}, 
-        sm_homo: {self.sm_homo}, sm_hetero: {self.sm_hetero}, 
-        genomes1K_homo: {self.genomes1K_homo}, 
+        return """Plasmy(id: {self.id}, group: {self.group},
+        mitomap_homo: {self.mitomap_homo}, mitomap_hetero: {self.mitomap_hetero},
+        sm_homo: {self.sm_homo}, sm_hetero: {self.sm_hetero},
+        genomes1K_homo: {self.genomes1K_homo},
         genomes1K_hetero: {self.genomes1K_hetero})\n""".format(self=self)
 
 
@@ -278,17 +278,17 @@ class Predict(Base):
         }
 
     def __repr__(self):
-        return """Predict(id: {self.id}, group: {self.group}, 
-        mutPred_pred: {self.mutPred_pred}, 
-        mutPred_prob: {self.mutPred_prob}, 
-        polyphen2_humDiv_pred: {self.polyphen2_humDiv_pred}, 
-        polyphen2_humDiv_prob: {self.polyphen2_humDiv_prob}, 
-        polyphen2_humVar_pred: {self.polyphen2_humVar_pred}, 
-        polyphen2_humVar_prob: {self.polyphen2_humVar_prob}, 
-        panther_pred: {self.panther_pred}, 
-        panther_prob: {self.panther_prob}, phD_snp_pred: {self.phD_snp_pred}, 
-        phD_snp_prob: {self.phD_snp_prob}, snp_go_pred: {self.snp_go_pred}, 
-        snp_go_prob: {self.snp_go_prob}, clinvar_pred: {self.clinvar_pred}, 
+        return """Predict(id: {self.id}, group: {self.group},
+        mutPred_pred: {self.mutPred_pred},
+        mutPred_prob: {self.mutPred_prob},
+        polyphen2_humDiv_pred: {self.polyphen2_humDiv_pred},
+        polyphen2_humDiv_prob: {self.polyphen2_humDiv_prob},
+        polyphen2_humVar_pred: {self.polyphen2_humVar_pred},
+        polyphen2_humVar_prob: {self.polyphen2_humVar_prob},
+        panther_pred: {self.panther_pred},
+        panther_prob: {self.panther_prob}, phD_snp_pred: {self.phD_snp_pred},
+        phD_snp_prob: {self.phD_snp_prob}, snp_go_pred: {self.snp_go_pred},
+        snp_go_prob: {self.snp_go_prob}, clinvar_pred: {self.clinvar_pred},
         clinvar_pheno: {self.clinvar_pheno})\n""".format(self=self)
 
 
@@ -326,14 +326,14 @@ class CrossRef(Base):
         }
 
     def __repr__(self):
-        return """CrossRef(id: {self.id}, group: {self.group}, 
-        clinvar: {self.clinvar}, 
-        omim: {self.omim}, dbSNP: {self.dbSNP}, mamit_tRNA: {self.mamit_tRNA}, 
-        phastCons_100way: {self.phastCons_100way}, 
-        phyloP_100way: {self.phyloP_100way}, 
-        ac_an_genomes1K: {self.ac_an_genomes1K}, 
-        mitomap_associated_disease: {self.mitomap_associated_disease}, 
-        somatic_mutations: {self.somatic_mutations}, 
+        return """CrossRef(id: {self.id}, group: {self.group},
+        clinvar: {self.clinvar},
+        omim: {self.omim}, dbSNP: {self.dbSNP}, mamit_tRNA: {self.mamit_tRNA},
+        phastCons_100way: {self.phastCons_100way},
+        phyloP_100way: {self.phyloP_100way},
+        ac_an_genomes1K: {self.ac_an_genomes1K},
+        mitomap_associated_disease: {self.mitomap_associated_disease},
+        somatic_mutations: {self.somatic_mutations},
         pubs_disease: {self.pubs_disease})\n""".format(self=self)
 
 
@@ -353,8 +353,8 @@ class Func_Loci(Base):
         }
 
     def __repr__(self):
-        return """Func_Loci(id: {self.id}, locus: {self.locus}, 
-        nt_start: {self.nt_start}, nt_end: {self.nt_end}, 
+        return """Func_Loci(id: {self.id}, locus: {self.locus},
+        nt_start: {self.nt_start}, nt_end: {self.nt_end},
         description: {self.description})\n""".format(self=self)
 
 
@@ -380,9 +380,9 @@ class Loci(Base):
         }
 
     def __repr__(self):
-        return """Loci(id: {self.id}, group: {self.group}, locus: {self.locus}, 
-        nt_start: {self.nt_start}, nt_end: {self.nt_end}, 
-        description: {self.description}, length: {self.length}, 
+        return """Loci(id: {self.id}, group: {self.group}, locus: {self.locus},
+        nt_start: {self.nt_start}, nt_end: {self.nt_end},
+        description: {self.description}, length: {self.length},
         dna_seq: {self.dna_seq}, aa_seq: {self.aa_seq})\n""".format(self=self)
 
 
@@ -399,13 +399,15 @@ class Haplo_A(Base):
     freq_oth = Column(Float)
 
     def to_dict(self):
-        return {"position": self.position, "freq_A": self.freq_A, "freq_C": self.freq_C,
+        return {"position": self.position,
+                "freq_A": self.freq_A, "freq_C": self.freq_C,
                 "freq_G": self.freq_G, "freq_T": self.freq_T,
                 "freq_gap": self.freq_gap, "freq_oth": self.freq_oth}
 
     def __repr__(self):
-        return """Haplo_A(id: {self.id}, position: {self.position}, freq_A: {self.freq_A}, 
-        freq_C: {self.freq_C}, freq_G: {self.freq_G}, freq_T: {self.freq_T}, 
+        return """Haplo_A(id: {self.id}, position: {self.position},
+        freq_A: {self.freq_A}, freq_C: {self.freq_C},
+        freq_G: {self.freq_G}, freq_T: {self.freq_T},
         freq_gap: {self.freq_gap}, freq_oth: {self.freq_oth})\n""".format(self=self)
 
 
@@ -422,12 +424,15 @@ class Haplo_B(Base):
     freq_oth = Column(Float)
 
     def to_dict(self):
-        return {"position": self.position, "freq_A": self.freq_A, "freq_C": self.freq_C, "freq_G": self.freq_G,
-                "freq_T": self.freq_T, "freq_gap": self.freq_gap, "freq_oth": self.freq_oth}
+        return {"position": self.position,
+                "freq_A": self.freq_A, "freq_C": self.freq_C,
+                "freq_G": self.freq_G, "freq_T": self.freq_T,
+                "freq_gap": self.freq_gap, "freq_oth": self.freq_oth}
 
     def __repr__(self):
-        return """Haplo_B(id: {self.id}, position: {self.position}, freq_A: {self.freq_A}, 
-        freq_C: {self.freq_C}, freq_G: {self.freq_G}, freq_T: {self.freq_T}, 
+        return """Haplo_B(id: {self.id}, position: {self.position},
+        freq_A: {self.freq_A}, freq_C: {self.freq_C},
+        freq_G: {self.freq_G}, freq_T: {self.freq_T},
         freq_gap: {self.freq_gap}, freq_oth: {self.freq_oth})\n""".format(self=self)
 
 
@@ -444,12 +449,15 @@ class Haplo_D(Base):
     freq_oth = Column(Float)
 
     def to_dict(self):
-        return {"position": self.position, "freq_A": self.freq_A, "freq_C": self.freq_C, "freq_G": self.freq_G,
-                "freq_T": self.freq_T, "freq_gap": self.freq_gap, "freq_oth": self.freq_oth}
+        return {"position": self.position,
+                "freq_A": self.freq_A, "freq_C": self.freq_C,
+                "freq_G": self.freq_G, "freq_T": self.freq_T,
+                "freq_gap": self.freq_gap, "freq_oth": self.freq_oth}
 
     def __repr__(self):
-        return """Haplo_D(id: {self.id}, position: {self.position}, freq_A: {self.freq_A}, 
-        freq_C: {self.freq_C}, freq_G: {self.freq_G}, freq_T: {self.freq_T}, 
+        return """Haplo_D(id: {self.id}, position: {self.position},
+        freq_A: {self.freq_A}, freq_C: {self.freq_C},
+        freq_G: {self.freq_G}, freq_T: {self.freq_T},
         freq_gap: {self.freq_gap}, freq_oth: {self.freq_oth})\n""".format(self=self)
 
 
@@ -466,12 +474,14 @@ class Haplo_G(Base):
     freq_oth = Column(Float)
 
     def to_dict(self):
-        return {"position": self.position, "freq_A": self.freq_A, "freq_C": self.freq_C, "freq_G": self.freq_G,
-                "freq_T": self.freq_T, "freq_gap": self.freq_gap, "freq_oth": self.freq_oth}
+        return {"position": self.position,
+                "freq_A": self.freq_A, "freq_C": self.freq_C,
+                "freq_G": self.freq_G, "freq_T": self.freq_T,
+                "freq_gap": self.freq_gap, "freq_oth": self.freq_oth}
 
     def __repr__(self):
-        return """Haplo_G(id: {self.id}, position: {self.position}, freq_A: {self.freq_A}, 
-        freq_C: {self.freq_C}, freq_G: {self.freq_G}, freq_T: {self.freq_T}, 
+        return """Haplo_G(id: {self.id}, position: {self.position}, freq_A: {self.freq_A},
+        freq_C: {self.freq_C}, freq_G: {self.freq_G}, freq_T: {self.freq_T},
         freq_gap: {self.freq_gap}, freq_oth: {self.freq_oth})\n""".format(self=self)
 
 
@@ -488,12 +498,15 @@ class Haplo_JT(Base):
     freq_oth = Column(Float)
 
     def to_dict(self):
-        return {"position": self.position, "freq_A": self.freq_A, "freq_C": self.freq_C, "freq_G": self.freq_G,
-                "freq_T": self.freq_T, "freq_gap": self.freq_gap, "freq_oth": self.freq_oth}
+        return {"position": self.position,
+                "freq_A": self.freq_A, "freq_C": self.freq_C,
+                "freq_G": self.freq_G, "freq_T": self.freq_T,
+                "freq_gap": self.freq_gap, "freq_oth": self.freq_oth}
 
     def __repr__(self):
-        return """Haplo_JT(id: {self.id}, position: {self.position}, freq_A: {self.freq_A}, 
-        freq_C: {self.freq_C}, freq_G: {self.freq_G}, freq_T: {self.freq_T}, 
+        return """Haplo_JT(id: {self.id}, position: {self.position},
+        freq_A: {self.freq_A}, freq_C: {self.freq_C},
+        freq_G: {self.freq_G}, freq_T: {self.freq_T},
         freq_gap: {self.freq_gap}, freq_oth: {self.freq_oth})\n""".format(self=self)
 
 
@@ -510,12 +523,15 @@ class Haplo_L0(Base):
     freq_oth = Column(Float)
 
     def to_dict(self):
-        return {"position": self.position, "freq_A": self.freq_A, "freq_C": self.freq_C, "freq_G": self.freq_G,
-                "freq_T": self.freq_T, "freq_gap": self.freq_gap, "freq_oth": self.freq_oth}
+        return {"position": self.position,
+                "freq_A": self.freq_A, "freq_C": self.freq_C,
+                "freq_G": self.freq_G, "freq_T": self.freq_T,
+                "freq_gap": self.freq_gap, "freq_oth": self.freq_oth}
 
     def __repr__(self):
-        return """Haplo_L0(id: {self.id}, position: {self.position}, freq_A: {self.freq_A}, 
-        freq_C: {self.freq_C}, freq_G: {self.freq_G}, freq_T: {self.freq_T}, 
+        return """Haplo_L0(id: {self.id}, position: {self.position},
+        freq_A: {self.freq_A}, freq_C: {self.freq_C},
+        freq_G: {self.freq_G}, freq_T: {self.freq_T},
         freq_gap: {self.freq_gap}, freq_oth: {self.freq_oth})\n""".format(self=self)
 
 
@@ -532,12 +548,15 @@ class Haplo_L1(Base):
     freq_oth = Column(Float)
 
     def to_dict(self):
-        return {"position": self.position, "freq_A": self.freq_A, "freq_C": self.freq_C, "freq_G": self.freq_G,
-                "freq_T": self.freq_T, "freq_gap": self.freq_gap, "freq_oth": self.freq_oth}
+        return {"position": self.position,
+                "freq_A": self.freq_A, "freq_C": self.freq_C,
+                "freq_G": self.freq_G, "freq_T": self.freq_T,
+                "freq_gap": self.freq_gap, "freq_oth": self.freq_oth}
 
     def __repr__(self):
-        return """Haplo_L1(id: {self.id}, position: {self.position}, freq_A: {self.freq_A}, 
-        freq_C: {self.freq_C}, freq_G: {self.freq_G}, freq_T: {self.freq_T}, 
+        return """Haplo_L1(id: {self.id}, position: {self.position},
+        freq_A: {self.freq_A}, freq_C: {self.freq_C},
+        freq_G: {self.freq_G}, freq_T: {self.freq_T},
         freq_gap: {self.freq_gap}, freq_oth: {self.freq_oth})\n""".format(self=self)
 
 
@@ -554,12 +573,15 @@ class Haplo_L2(Base):
     freq_oth = Column(Float)
 
     def to_dict(self):
-        return {"position": self.position, "freq_A": self.freq_A, "freq_C": self.freq_C, "freq_G": self.freq_G,
-                "freq_T": self.freq_T, "freq_gap": self.freq_gap, "freq_oth": self.freq_oth}
+        return {"position": self.position,
+                "freq_A": self.freq_A, "freq_C": self.freq_C,
+                "freq_G": self.freq_G, "freq_T": self.freq_T,
+                "freq_gap": self.freq_gap, "freq_oth": self.freq_oth}
 
     def __repr__(self):
-        return """Haplo_L2(id: {self.id}, position: {self.position}, freq_A: {self.freq_A}, 
-        freq_C: {self.freq_C}, freq_G: {self.freq_G}, freq_T: {self.freq_T}, 
+        return """Haplo_L2(id: {self.id}, position: {self.position},
+        freq_A: {self.freq_A}, freq_C: {self.freq_C},
+        freq_G: {self.freq_G}, freq_T: {self.freq_T},
         freq_gap: {self.freq_gap}, freq_oth: {self.freq_oth})\n""".format(self=self)
 
 
@@ -576,12 +598,15 @@ class Haplo_L3_star(Base):
     freq_oth = Column(Float)
 
     def to_dict(self):
-        return {"position": self.position, "freq_A": self.freq_A, "freq_C": self.freq_C, "freq_G": self.freq_G,
-                "freq_T": self.freq_T, "freq_gap": self.freq_gap, "freq_oth": self.freq_oth}
+        return {"position": self.position,
+                "freq_A": self.freq_A, "freq_C": self.freq_C,
+                "freq_G": self.freq_G, "freq_T": self.freq_T,
+                "freq_gap": self.freq_gap, "freq_oth": self.freq_oth}
 
     def __repr__(self):
-        return """Haplo_L3_star(id: {self.id}, position: {self.position}, freq_A: {self.freq_A}, 
-        freq_C: {self.freq_C}, freq_G: {self.freq_G}, freq_T: {self.freq_T}, 
+        return """Haplo_L3_star(id: {self.id}, position: {self.position},
+        freq_A: {self.freq_A}, freq_C: {self.freq_C},
+        freq_G: {self.freq_G}, freq_T: {self.freq_T},
         freq_gap: {self.freq_gap}, freq_oth: {self.freq_oth})\n""".format(self=self)
 
 
@@ -598,12 +623,14 @@ class Haplo_L4(Base):
     freq_oth = Column(Float)
 
     def to_dict(self):
-        return {"position": self.position, "freq_A": self.freq_A, "freq_C": self.freq_C, "freq_G": self.freq_G,
-                "freq_T": self.freq_T, "freq_gap": self.freq_gap, "freq_oth": self.freq_oth}
+        return {"position": self.position,
+                "freq_A": self.freq_A, "freq_C": self.freq_C,
+                "freq_G": self.freq_G, "freq_T": self.freq_T,
+                "freq_gap": self.freq_gap, "freq_oth": self.freq_oth}
 
     def __repr__(self):
-        return """Haplo_L4(id: {self.id}, position: {self.position}, freq_A: {self.freq_A}, 
-        freq_C: {self.freq_C}, freq_G: {self.freq_G}, freq_T: {self.freq_T}, 
+        return """Haplo_L4(id: {self.id}, position: {self.position}, freq_A: {self.freq_A},
+        freq_C: {self.freq_C}, freq_G: {self.freq_G}, freq_T: {self.freq_T},
         freq_gap: {self.freq_gap}, freq_oth: {self.freq_oth})\n""".format(self=self)
 
 
@@ -620,12 +647,14 @@ class Haplo_L5(Base):
     freq_oth = Column(Float)
 
     def to_dict(self):
-        return {"position": self.position, "freq_A": self.freq_A, "freq_C": self.freq_C, "freq_G": self.freq_G,
-                "freq_T": self.freq_T, "freq_gap": self.freq_gap, "freq_oth": self.freq_oth}
+        return {"position": self.position,
+                "freq_A": self.freq_A, "freq_C": self.freq_C,
+                "freq_G": self.freq_G, "freq_T": self.freq_T,
+                "freq_gap": self.freq_gap, "freq_oth": self.freq_oth}
 
     def __repr__(self):
-        return """Haplo_L5(id: {self.id}, position: {self.position}, freq_A: {self.freq_A}, 
-        freq_C: {self.freq_C}, freq_G: {self.freq_G}, freq_T: {self.freq_T}, 
+        return """Haplo_L5(id: {self.id}, position: {self.position}, freq_A: {self.freq_A},
+        freq_C: {self.freq_C}, freq_G: {self.freq_G}, freq_T: {self.freq_T},
         freq_gap: {self.freq_gap}, freq_oth: {self.freq_oth})\n""".format(self=self)
 
 
@@ -642,12 +671,14 @@ class Haplo_L6(Base):
     freq_oth = Column(Float)
 
     def to_dict(self):
-        return {"position": self.position, "freq_A": self.freq_A, "freq_C": self.freq_C, "freq_G": self.freq_G,
-                "freq_T": self.freq_T, "freq_gap": self.freq_gap, "freq_oth": self.freq_oth}
+        return {"position": self.position,
+                "freq_A": self.freq_A, "freq_C": self.freq_C,
+                "freq_G": self.freq_G, "freq_T": self.freq_T,
+                "freq_gap": self.freq_gap, "freq_oth": self.freq_oth}
 
     def __repr__(self):
-        return """Haplo_L6(id: {self.id}, position: {self.position}, freq_A: {self.freq_A}, 
-        freq_C: {self.freq_C}, freq_G: {self.freq_G}, freq_T: {self.freq_T}, 
+        return """Haplo_L6(id: {self.id}, position: {self.position}, freq_A: {self.freq_A},
+        freq_C: {self.freq_C}, freq_G: {self.freq_G}, freq_T: {self.freq_T},
         freq_gap: {self.freq_gap}, freq_oth: {self.freq_oth})\n""".format(self=self)
 
 
@@ -664,12 +695,14 @@ class Haplo_M7(Base):
     freq_oth = Column(Float)
 
     def to_dict(self):
-        return {"position": self.position, "freq_A": self.freq_A, "freq_C": self.freq_C, "freq_G": self.freq_G,
-                "freq_T": self.freq_T, "freq_gap": self.freq_gap, "freq_oth": self.freq_oth}
+        return {"position": self.position,
+                "freq_A": self.freq_A, "freq_C": self.freq_C,
+                "freq_G": self.freq_G, "freq_T": self.freq_T,
+                "freq_gap": self.freq_gap, "freq_oth": self.freq_oth}
 
     def __repr__(self):
-        return """Haplo_M7(id: {self.id}, position: {self.position}, freq_A: {self.freq_A}, 
-        freq_C: {self.freq_C}, freq_G: {self.freq_G}, freq_T: {self.freq_T}, 
+        return """Haplo_M7(id: {self.id}, position: {self.position}, freq_A: {self.freq_A},
+        freq_C: {self.freq_C}, freq_G: {self.freq_G}, freq_T: {self.freq_T},
         freq_gap: {self.freq_gap}, freq_oth: {self.freq_oth})\n""".format(self=self)
 
 
@@ -686,12 +719,14 @@ class Haplo_M8(Base):
     freq_oth = Column(Float)
 
     def to_dict(self):
-        return {"position": self.position, "freq_A": self.freq_A, "freq_C": self.freq_C, "freq_G": self.freq_G,
-                "freq_T": self.freq_T, "freq_gap": self.freq_gap, "freq_oth": self.freq_oth}
+        return {"position": self.position,
+                "freq_A": self.freq_A, "freq_C": self.freq_C,
+                "freq_G": self.freq_G, "freq_T": self.freq_T,
+                "freq_gap": self.freq_gap, "freq_oth": self.freq_oth}
 
     def __repr__(self):
-        return """Haplo_M8(id: {self.id}, position: {self.position}, freq_A: {self.freq_A}, 
-        freq_C: {self.freq_C}, freq_G: {self.freq_G}, freq_T: {self.freq_T}, 
+        return """Haplo_M8(id: {self.id}, position: {self.position}, freq_A: {self.freq_A},
+        freq_C: {self.freq_C}, freq_G: {self.freq_G}, freq_T: {self.freq_T},
         freq_gap: {self.freq_gap}, freq_oth: {self.freq_oth})\n""".format(self=self)
 
 
@@ -708,12 +743,14 @@ class Haplo_M9(Base):
     freq_oth = Column(Float)
 
     def to_dict(self):
-        return {"position": self.position, "freq_A": self.freq_A, "freq_C": self.freq_C, "freq_G": self.freq_G,
-                "freq_T": self.freq_T, "freq_gap": self.freq_gap, "freq_oth": self.freq_oth}
+        return {"position": self.position,
+                "freq_A": self.freq_A, "freq_C": self.freq_C,
+                "freq_G": self.freq_G, "freq_T": self.freq_T,
+                "freq_gap": self.freq_gap, "freq_oth": self.freq_oth}
 
     def __repr__(self):
-        return """Haplo_M9(id: {self.id}, position: {self.position}, freq_A: {self.freq_A}, 
-        freq_C: {self.freq_C}, freq_G: {self.freq_G}, freq_T: {self.freq_T}, 
+        return """Haplo_M9(id: {self.id}, position: {self.position}, freq_A: {self.freq_A},
+        freq_C: {self.freq_C}, freq_G: {self.freq_G}, freq_T: {self.freq_T},
         freq_gap: {self.freq_gap}, freq_oth: {self.freq_oth})\n""".format(self=self)
 
 
@@ -730,12 +767,14 @@ class Haplo_M_star(Base):
     freq_oth = Column(Float)
 
     def to_dict(self):
-        return {"position": self.position, "freq_A": self.freq_A, "freq_C": self.freq_C, "freq_G": self.freq_G,
-                "freq_T": self.freq_T, "freq_gap": self.freq_gap, "freq_oth": self.freq_oth}
+        return {"position": self.position,
+                "freq_A": self.freq_A, "freq_C": self.freq_C,
+                "freq_G": self.freq_G, "freq_T": self.freq_T,
+                "freq_gap": self.freq_gap, "freq_oth": self.freq_oth}
 
     def __repr__(self):
-        return """Haplo_M_star(id: {self.id}, position: {self.position}, freq_A: {self.freq_A}, 
-        freq_C: {self.freq_C}, freq_G: {self.freq_G}, freq_T: {self.freq_T}, 
+        return """Haplo_M_star(id: {self.id}, position: {self.position}, freq_A: {self.freq_A},
+        freq_C: {self.freq_C}, freq_G: {self.freq_G}, freq_T: {self.freq_T},
         freq_gap: {self.freq_gap}, freq_oth: {self.freq_oth})\n""".format(self=self)
 
 
@@ -752,12 +791,14 @@ class Haplo_N1(Base):
     freq_oth = Column(Float)
 
     def to_dict(self):
-        return {"position": self.position, "freq_A": self.freq_A, "freq_C": self.freq_C, "freq_G": self.freq_G,
-                "freq_T": self.freq_T, "freq_gap": self.freq_gap, "freq_oth": self.freq_oth}
+        return {"position": self.position,
+                "freq_A": self.freq_A, "freq_C": self.freq_C,
+                "freq_G": self.freq_G, "freq_T": self.freq_T,
+                "freq_gap": self.freq_gap, "freq_oth": self.freq_oth}
 
     def __repr__(self):
-        return """Haplo_N1(id: {self.id}, position: {self.position}, freq_A: {self.freq_A}, 
-        freq_C: {self.freq_C}, freq_G: {self.freq_G}, freq_T: {self.freq_T}, 
+        return """Haplo_N1(id: {self.id}, position: {self.position}, freq_A: {self.freq_A},
+        freq_C: {self.freq_C}, freq_G: {self.freq_G}, freq_T: {self.freq_T},
         freq_gap: {self.freq_gap}, freq_oth: {self.freq_oth})\n""".format(self=self)
 
 
@@ -774,12 +815,14 @@ class Haplo_N2(Base):
     freq_oth = Column(Float)
 
     def to_dict(self):
-        return {"position": self.position, "freq_A": self.freq_A, "freq_C": self.freq_C, "freq_G": self.freq_G,
-                "freq_T": self.freq_T, "freq_gap": self.freq_gap, "freq_oth": self.freq_oth}
+        return {"position": self.position,
+                "freq_A": self.freq_A, "freq_C": self.freq_C,
+                "freq_G": self.freq_G, "freq_T": self.freq_T,
+                "freq_gap": self.freq_gap, "freq_oth": self.freq_oth}
 
     def __repr__(self):
-        return """Haplo_N2(id: {self.id}, position: {self.position}, freq_A: {self.freq_A}, 
-        freq_C: {self.freq_C}, freq_G: {self.freq_G}, freq_T: {self.freq_T}, 
+        return """Haplo_N2(id: {self.id}, position: {self.position}, freq_A: {self.freq_A},
+        freq_C: {self.freq_C}, freq_G: {self.freq_G}, freq_T: {self.freq_T},
         freq_gap: {self.freq_gap}, freq_oth: {self.freq_oth})\n""".format(self=self)
 
 
@@ -796,12 +839,14 @@ class Haplo_N9(Base):
     freq_oth = Column(Float)
 
     def to_dict(self):
-        return {"position": self.position, "freq_A": self.freq_A, "freq_C": self.freq_C, "freq_G": self.freq_G,
-                "freq_T": self.freq_T, "freq_gap": self.freq_gap, "freq_oth": self.freq_oth}
+        return {"position": self.position,
+                "freq_A": self.freq_A, "freq_C": self.freq_C,
+                "freq_G": self.freq_G, "freq_T": self.freq_T,
+                "freq_gap": self.freq_gap, "freq_oth": self.freq_oth}
 
     def __repr__(self):
-        return """Haplo_N9(id: {self.id}, position: {self.position}, freq_A: {self.freq_A}, 
-        freq_C: {self.freq_C}, freq_G: {self.freq_G}, freq_T: {self.freq_T}, 
+        return """Haplo_N9(id: {self.id}, position: {self.position}, freq_A: {self.freq_A},
+        freq_C: {self.freq_C}, freq_G: {self.freq_G}, freq_T: {self.freq_T},
         freq_gap: {self.freq_gap}, freq_oth: {self.freq_oth})\n""".format(self=self)
 
 
@@ -818,12 +863,14 @@ class Haplo_N_star(Base):
     freq_oth = Column(Float)
 
     def to_dict(self):
-        return {"position": self.position, "freq_A": self.freq_A, "freq_C": self.freq_C, "freq_G": self.freq_G,
-                "freq_T": self.freq_T, "freq_gap": self.freq_gap, "freq_oth": self.freq_oth}
+        return {"position": self.position,
+                "freq_A": self.freq_A, "freq_C": self.freq_C,
+                "freq_G": self.freq_G, "freq_T": self.freq_T,
+                "freq_gap": self.freq_gap, "freq_oth": self.freq_oth}
 
     def __repr__(self):
-        return """Haplo_N_star(id: {self.id}, position: {self.position}, freq_A: {self.freq_A}, 
-        freq_C: {self.freq_C}, freq_G: {self.freq_G}, freq_T: {self.freq_T}, 
+        return """Haplo_N_star(id: {self.id}, position: {self.position}, freq_A: {self.freq_A},
+        freq_C: {self.freq_C}, freq_G: {self.freq_G}, freq_T: {self.freq_T},
         freq_gap: {self.freq_gap}, freq_oth: {self.freq_oth})\n""".format(self=self)
 
 
@@ -840,12 +887,14 @@ class Haplo_R0(Base):
     freq_oth = Column(Float)
 
     def to_dict(self):
-        return {"position": self.position, "freq_A": self.freq_A, "freq_C": self.freq_C, "freq_G": self.freq_G,
-                "freq_T": self.freq_T, "freq_gap": self.freq_gap, "freq_oth": self.freq_oth}
+        return {"position": self.position,
+                "freq_A": self.freq_A, "freq_C": self.freq_C,
+                "freq_G": self.freq_G, "freq_T": self.freq_T,
+                "freq_gap": self.freq_gap, "freq_oth": self.freq_oth}
 
     def __repr__(self):
-        return """Haplo_R0(id: {self.id}, position: {self.position}, freq_A: {self.freq_A}, 
-        freq_C: {self.freq_C}, freq_G: {self.freq_G}, freq_T: {self.freq_T}, 
+        return """Haplo_R0(id: {self.id}, position: {self.position}, freq_A: {self.freq_A},
+        freq_C: {self.freq_C}, freq_G: {self.freq_G}, freq_T: {self.freq_T},
         freq_gap: {self.freq_gap}, freq_oth: {self.freq_oth})\n""".format(self=self)
 
 
@@ -862,12 +911,14 @@ class Haplo_R9(Base):
     freq_oth = Column(Float)
 
     def to_dict(self):
-        return {"position": self.position, "freq_A": self.freq_A, "freq_C": self.freq_C, "freq_G": self.freq_G,
-                "freq_T": self.freq_T, "freq_gap": self.freq_gap, "freq_oth": self.freq_oth}
+        return {"position": self.position,
+                "freq_A": self.freq_A, "freq_C": self.freq_C,
+                "freq_G": self.freq_G, "freq_T": self.freq_T,
+                "freq_gap": self.freq_gap, "freq_oth": self.freq_oth}
 
     def __repr__(self):
-        return """Haplo_R9(id: {self.id}, position: {self.position}, freq_A: {self.freq_A}, 
-        freq_C: {self.freq_C}, freq_G: {self.freq_G}, freq_T: {self.freq_T}, 
+        return """Haplo_R9(id: {self.id}, position: {self.position}, freq_A: {self.freq_A},
+        freq_C: {self.freq_C}, freq_G: {self.freq_G}, freq_T: {self.freq_T},
         freq_gap: {self.freq_gap}, freq_oth: {self.freq_oth})\n""".format(self=self)
 
 
@@ -884,12 +935,14 @@ class Haplo_R_star(Base):
     freq_oth = Column(Float)
 
     def to_dict(self):
-        return {"position": self.position, "freq_A": self.freq_A, "freq_C": self.freq_C, "freq_G": self.freq_G,
-                "freq_T": self.freq_T, "freq_gap": self.freq_gap, "freq_oth": self.freq_oth}
+        return {"position": self.position,
+                "freq_A": self.freq_A, "freq_C": self.freq_C,
+                "freq_G": self.freq_G, "freq_T": self.freq_T,
+                "freq_gap": self.freq_gap, "freq_oth": self.freq_oth}
 
     def __repr__(self):
-        return """Haplo_R_star(id: {self.id}, position: {self.position}, freq_A: {self.freq_A}, 
-        freq_C: {self.freq_C}, freq_G: {self.freq_G}, freq_T: {self.freq_T}, 
+        return """Haplo_R_star(id: {self.id}, position: {self.position}, freq_A: {self.freq_A},
+        freq_C: {self.freq_C}, freq_G: {self.freq_G}, freq_T: {self.freq_T},
         freq_gap: {self.freq_gap}, freq_oth: {self.freq_oth})\n""".format(self=self)
 
 
@@ -906,12 +959,14 @@ class Haplo_U(Base):
     freq_oth = Column(Float)
 
     def to_dict(self):
-        return {"position": self.position, "freq_A": self.freq_A, "freq_C": self.freq_C, "freq_G": self.freq_G,
-                "freq_T": self.freq_T, "freq_gap": self.freq_gap, "freq_oth": self.freq_oth}
+        return {"position": self.position,
+                "freq_A": self.freq_A, "freq_C": self.freq_C,
+                "freq_G": self.freq_G, "freq_T": self.freq_T,
+                "freq_gap": self.freq_gap, "freq_oth": self.freq_oth}
 
     def __repr__(self):
-        return """Haplo_U(id: {self.id}, position: {self.position}, freq_A: {self.freq_A}, 
-        freq_C: {self.freq_C}, freq_G: {self.freq_G}, freq_T: {self.freq_T}, 
+        return """Haplo_U(id: {self.id}, position: {self.position}, freq_A: {self.freq_A},
+        freq_C: {self.freq_C}, freq_G: {self.freq_G}, freq_T: {self.freq_T},
         freq_gap: {self.freq_gap}, freq_oth: {self.freq_oth})\n""".format(self=self)
 
 
@@ -928,10 +983,12 @@ class Haplo_X(Base):
     freq_oth = Column(Float)
 
     def to_dict(self):
-        return {"position": self.position, "freq_A": self.freq_A, "freq_C": self.freq_C, "freq_G": self.freq_G,
-                "freq_T": self.freq_T, "freq_gap": self.freq_gap, "freq_oth": self.freq_oth}
+        return {"position": self.position,
+                "freq_A": self.freq_A, "freq_C": self.freq_C,
+                "freq_G": self.freq_G, "freq_T": self.freq_T,
+                "freq_gap": self.freq_gap, "freq_oth": self.freq_oth}
 
     def __repr__(self):
-        return """Haplo_X(id: {self.id}, position: {self.position}, freq_A: {self.freq_A}, 
-        freq_C: {self.freq_C}, freq_G: {self.freq_G}, freq_T: {self.freq_T}, 
+        return """Haplo_X(id: {self.id}, position: {self.position}, freq_A: {self.freq_A},
+        freq_C: {self.freq_C}, freq_G: {self.freq_G}, freq_T: {self.freq_T},
         freq_gap: {self.freq_gap}, freq_oth: {self.freq_oth})\n""".format(self=self)

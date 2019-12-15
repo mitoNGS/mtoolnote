@@ -119,3 +119,18 @@ HEADERS_HAPLOS = (
     ("Haplo_U", "Haplo_U", "Allele frequency of the variant in haplogroup U"),
     ("Haplo_X", "Haplo_X", "Allele frequency of the variant in haplogroup X"),
 )
+
+HUMAN_HEADERS = (*HEADERS_MAIN, *HEADER_PREDICT, *HEADERS_VARIAB,
+                 *HEADERS_CROSSREF, *HEADERS_HAPLOS)
+
+NONHUMAN_HEADERS = (("Locus", "Gene stable ID",
+                     "Locus to which the variant belongs"),
+                    ("dbSNP", "Variant name", "dbSNP ID of the variant"),
+                    ("Consequence", "Variant consequence",
+                     "Functional effect of the variant"))
+
+SPECIES = ("oaries", "ptroglodytes", "scerevisiae", "ecaballus", "fcatus",
+           "cfamiliaris", "pabelii", "ggallus", "mmulatta", "rnorvegicus",
+           "btaurus", "oanatinus", "sscrofa", "nleucogenys", "chircus",
+           "mmusculus", "tguttata", "tnigroviridis", "mgallopavo",
+           "mdomestica", "drerio")
