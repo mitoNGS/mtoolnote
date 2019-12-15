@@ -1,9 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 # Created by Roberto Preste
-import apybiomart as apy
 from concurrent.futures import ThreadPoolExecutor
-from mtoolnote.classes import Field, Variant, Parser, Annotator, _SPECIES
+
+import apybiomart as apy
+
+from mtoolnote.classes import Field, Variant, Parser, Annotator
+from mtoolnote.constants import NONHUMAN_HEADERS, SPECIES
 
 
 # TODO: these two can be deleted, only keeping them here for reference
@@ -55,7 +58,6 @@ class NonHumanVariant(Variant):
                          dataset=f"{self.species}_snp")
         resp.drop_duplicates("Variant alleles", inplace=True)
 
-        # return resp.to_dict()
         return resp.to_dict(orient="records")
 
 
@@ -111,15 +113,11 @@ class NonHumanAnnotator(Annotator):
         to_csv()
     """
 
-    _HEADERS = (("Locus", "Gene stable ID",
-                 "Locus to which the variant belongs"),
-                ("dbSNP", "Variant name", "dbSNP ID of the variant"),
-                ("Consequence", "Variant consequence",
-                 "Functional effect of the variant"))
+    _HEADERS = NONHUMAN_HEADERS
 
     def __init__(self, input_vcf, output_vcf, species):
         super().__init__(input_vcf, output_vcf, self._HEADERS)
-        if species not in _SPECIES:
+        if species not in SPECIES:
             raise ValueError("species not supported")
         self.species = species
 

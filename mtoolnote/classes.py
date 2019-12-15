@@ -1,18 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 # Created by Roberto Preste
-# import vcfpy2 as vcfpy
 import os
-import vcfpy
-import allel
 from collections import defaultdict
 from abc import ABC, abstractmethod
 
-_SPECIES = ("oaries", "ptroglodytes", "scerevisiae", "ecaballus", "fcatus",
-            "cfamiliaris", "pabelii", "ggallus", "mmulatta", "rnorvegicus",
-            "btaurus", "oanatinus", "sscrofa", "nleucogenys", "chircus",
-            "mmusculus", "tguttata", "tnigroviridis", "mgallopavo",
-            "mdomestica", "drerio")
+import allel
+import vcfpy
 
 
 class Field:
