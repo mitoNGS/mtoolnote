@@ -4,7 +4,7 @@
 import click
 import sys
 
-from mtoolnote.classes import _SPECIES
+from mtoolnote.constants import SPECIES
 from mtoolnote.human import HumanAnnotator
 from mtoolnote.nonhuman import NonHumanAnnotator
 
@@ -14,7 +14,7 @@ from mtoolnote.nonhuman import NonHumanAnnotator
 @click.argument("input_vcf")
 @click.argument("output_vcf")
 @click.option("--species", "-s", default="human",
-              type=click.Choice(("human", ) + _SPECIES),
+              type=click.Choice(("human", ) + SPECIES),
               help="Species to use for annotation (default: human)")
 @click.option("--csv", "-c", is_flag=True, default=False,
               help="Create an additional annotated CSV file (default: False)")
