@@ -18,7 +18,9 @@ matrix:
 #        - pip3 install -U pytest
 #        - pip3 install codecov
       install: pip3 install -r requirements.txt
-      script: pytest
+      script:
+        - pytest
+        - flake8 mtoolnote
     - name: "Python 3.7.3 on macOS (xcode 10.2)"
       os: osx
       osx_image: xcode10.2
@@ -29,7 +31,9 @@ matrix:
 #        - pip3 install -U pytest
 #        - pip3 install codecov
       install: pip3 install -r requirements.txt
-      script: pytest
+      script:
+        - pytest
+        - flake8 mtoolnote
     - name: "Python 3.6 on Linux Xenial"
       os: linux
       language: python
@@ -37,7 +41,9 @@ matrix:
         - python3 --version
         - pip3 install -U pip
       install: pip3 install -r requirements.txt
-      script: pytest
+      script:
+        - pytest
+        - flake8 mtoolnote
     - name: "Python 3.7 on Linux Xenial"
       os: linux
       language: python
@@ -45,7 +51,9 @@ matrix:
         - python3 --version
         - pip3 install -U pip
       install: pip3 install -r requirements.txt
-      script: pytest
+      script:
+        - pytest
+        - flake8 mtoolnote
 
 # Command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
 #install: pip install -U tox-travis
