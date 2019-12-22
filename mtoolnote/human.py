@@ -129,6 +129,13 @@ class HumanVariant(Variant):
                 **query_variab.to_dict(),
                 **query_haplos}
 
+    def __repr__(self):
+        return ("{}(reference={!r}, position={!r}, alternate={!r}, "
+                "session={!r})").format(
+            self.__class__.__name__, self.reference, self.position,
+            self.alternate, self.session
+        )
+
 
 class HumanParser(Parser):
     """Class for a human variant parser.
@@ -162,6 +169,11 @@ class HumanParser(Parser):
             response = variant.response()
             for field in self.headers:
                 field.values = response.get(field.slug, ".")
+
+    def __repr__(self):
+        return "{}(record={!r}, headers={!r}, session={!r})".format(
+            self.__class__.__name__, self.record, self.headers, self.session
+        )
 
 
 class HumanAnnotator(Annotator):
@@ -202,3 +214,8 @@ class HumanAnnotator(Annotator):
             self._writer.write_record(record)
         self._reader.close()
         self._writer.close()
+
+    def __repr__(self):
+        return "{}(input_vcf={!r}, output_vcf={!r})".format(
+            self.__class__.__name__, self.input_vcf, self.output_vcf
+        )

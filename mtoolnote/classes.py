@@ -62,6 +62,11 @@ class Field:
         """
         self._values.append(self._replace_null(value))
 
+    def __repr__(self):
+        return "{}(element={!r}, slug={!r}, description={!r})".format(
+            self.__class__.__name__, self.element, self.slug, self.description
+        )
+
 
 class Variant(ABC):
     """Abstract class to process a single variant.
@@ -101,6 +106,12 @@ class Variant(ABC):
         """Retrieve the related information for deletions, insertions and SNPs."""
         pass
 
+    def __repr__(self):
+        return "{}(reference={!r}, position={!r}, alternate={!r})".format(
+            self.__class__.__name__, self.reference, self.position,
+            self.alternate
+        )
+
 
 class Parser(ABC):
     """Abstract class for a variant parser.
@@ -126,6 +137,11 @@ class Parser(ABC):
         """Parse results and store them in the headers."""
         pass
 
+    def __repr__(self):
+        return "{}(record={!r}, headers={!r})".format(
+            self.__class__.__name__, self.record, self.headers
+        )
+
 
 class Annotator(ABC):
     """Abstract class for an annotator.
@@ -136,6 +152,7 @@ class Annotator(ABC):
     Attributes:
         input_vcf: input vcf file
         output_vcf: output vcf file
+        headers: vcf headers to use
 
     Methods:
         _update_header()
@@ -204,3 +221,9 @@ class Annotator(ABC):
             df.insert(loc=col_idx, column=new_col, value=merged_col.values)
 
         df.to_csv(output_csv, index=False)
+
+    def __repr__(self):
+        return "{}(input_vcf={!r}, output_vcf={!r}, headers={!r})".format(
+            self.__class__.__name__, self.input_vcf, self.output_vcf,
+            self.headers
+        )
