@@ -6,7 +6,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 from mtoolnote.classes import Annotator, Field, Variant, Parser
-from mtoolnote.constants import HUMAN_HEADERS
+from mtoolnote.constants import HUMAN_HEADERS, MT_POS_DICT
 from mtoolnote.models import (
     Main, CrossRef, Predict, Variab,
     Haplo_A, Haplo_B, Haplo_D, Haplo_G, Haplo_JT, Haplo_L0, Haplo_L1,
@@ -40,6 +40,16 @@ class HumanVariant(Variant):
     def __init__(self, reference, position, alternate, session):
         super().__init__(reference, position, alternate)
         self.session = session
+
+    @property
+    def _locus(self) -> str:
+        """Return the locus to which the variant belongs."""
+        locus = "DLOOP"
+        for key, pos in MT_POS_DICT.items():
+            if self.position in pos:
+                locus = key
+                break
+        return locus
 
     def _query_frequency(self):
         """Retrieve data from the haplogroup-specific frequency tables."""
@@ -112,7 +122,13 @@ class HumanVariant(Variant):
             query_main = self._snp_query()
 
         if query_main is None:
-            return dict()
+            return {
+                "nt_start": self.position,
+                "ref_rCRS": self.reference,
+                "alt": self.alternate,
+                "nt_end": self.position,
+                "locus": self._locus
+            }
 
         idx = query_main.id
         query_crossref = (self.session.query(CrossRef)
