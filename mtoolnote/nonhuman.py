@@ -60,6 +60,13 @@ class NonHumanVariant(Variant):
 
         return resp.to_dict(orient="records")
 
+    def __repr__(self):
+        return ("{}(reference={!r}, position={!r}, alternate={!r}, "
+                "species={!r})").format(
+            self.__class__.__name__, self.reference, self.position,
+            self.alternate, self.species
+        )
+
 
 class NonHumanParser(Parser):
     """Class for a non-human variant parser.
@@ -95,6 +102,11 @@ class NonHumanParser(Parser):
                 for r in response:
                     for field in self.headers:
                         field.values = r.get(field.slug, ".")
+
+    def __repr__(self):
+        return "{}(record={!r}, headers={!r}, species={!r})".format(
+            self.__class__.__name__, self.record, self.headers, self.species
+        )
 
 
 class NonHumanAnnotator(Annotator):
@@ -172,3 +184,9 @@ class NonHumanAnnotator(Annotator):
 
         self._reader.close()
         self._writer.close()
+
+    def __repr__(self):
+        return "{}(input_vcf={!r}, output_vcf={!r}, species={!r})".format(
+            self.__class__.__name__, self.input_vcf, self.output_vcf,
+            self.species
+        )
