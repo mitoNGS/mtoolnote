@@ -153,4 +153,3 @@ class TestAnnotator(unittest.TestCase):
         self.assertFalse(
             self.annot._is_variation(record)
         )
-

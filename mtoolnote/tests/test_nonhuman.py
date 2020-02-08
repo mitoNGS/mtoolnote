@@ -137,4 +137,3 @@ class TestNonHumanAnnotator(unittest.TestCase):
 
         # Then
         self.assertEqual(expected, result)
-

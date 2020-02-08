@@ -29,6 +29,7 @@ def human_ann_csv():
     with open(HUMAN_ANN_CSV) as f:
         yield f
 
+
 @pytest.fixture
 def ggallus_vcf():
     """Open the ggallus vcf."""
