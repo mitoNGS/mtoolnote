@@ -4,13 +4,7 @@
 import click
 import os
 from mtoolnote import annotate
-
-
-DATADIR = os.path.join(os.path.dirname(os.path.realpath(__file__)), "data")
-HUMAN = os.path.join(DATADIR, "human.vcf")
-HUMAN_ANN = os.path.join(DATADIR, "human_ann.vcf")
-GGALLUS = os.path.join(DATADIR, "ggallus.vcf")
-GGALLUS_ANN = os.path.join(DATADIR, "ggallus_ann.vcf")
+from mtoolnote.tests.constants import HUMAN, HUMAN_ANN, GGALLUS, GGALLUS_ANN
 
 
 def main():

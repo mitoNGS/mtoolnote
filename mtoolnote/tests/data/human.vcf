@@ -1,0 +1,25 @@
+##fileformat=VCFv4.0
+##reference=chrRCRS
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FORMAT=<ID=DP,Number=.,Type=Integer,Description="Reads covering the REF position">
+##FORMAT=<ID=HF,Number=.,Type=Float,Description="Heteroplasmy Frequency of variant allele">
+##FORMAT=<ID=CILOW,Number=.,Type=Float,Description="Value defining the lower limit of the confidence interval of the heteroplasmy fraction">
+##FORMAT=<ID=CIUP,Number=.,Type=Float,Description="Value defining the upper limit of the confidence interval of the heteroplasmy fraction">
+##INFO=<ID=AC,Number=.,Type=Integer,Description="Allele count in genotypes">
+##INFO=<ID=AN,Number=1,Type=Integer,Description="Total number of alleles in called genotypes">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	SRR043366
+chrMT	263	.	A	G	.	PASS	AC=1;AN=2	GT:DP:HF:CILOW:CIUP	0/1:167:0.994:0.963:1.0
+chrMT	302	.	A	AC	.	PASS	AC=1;AN=2	GT:DP:HF:CILOW:CIUP	0/1:94:0.085:0.042:0.161
+chrMT	310	.	T	TC,C	.	PASS	AC=1,1;AN=3	GT:DP:HF:CILOW:CIUP	0/1/2:60:0.117,0.642:0.055,0.507:0.225,0.757
+chrMT	709	.	G	A	.	PASS	AC=1;AN=2	GT:DP:HF:CILOW:CIUP	0/1:230:0.983:0.955:0.995
+chrMT	750	.	A	G	.	PASS	AC=1;AN=2	GT:DP:HF:CILOW:CIUP	0/1:255:0.996:0.976:1.0
+chrMT	1438	.	A	G	.	PASS	AC=1;AN=2	GT:DP:HF:CILOW:CIUP	0/1:354:0.992:0.974:0.998
+chrMT	2735	.	G	A	.	PASS	AC=1;AN=2	GT:DP:HF:CILOW:CIUP	0/1:296:0.017:0.006:0.04
+chrMT	3106	.	CN	C	.	PASS	AC=1;AN=2	GT:DP:HF:CILOW:CIUP	0/1:385:0.652:0.603:0.698
+chrMT	4216	.	T	C	.	PASS	AC=1;AN=2	GT:DP:HF:CILOW:CIUP	0/1:180:0.994:0.966:1.0
+chrMT	10306	.	A	C	.	PASS	AC=1;AN=2	GT:DP:HF:CILOW:CIUP	0/1:208:0.029:0.012:0.063
+chrMT	10463	.	T	C	.	PASS	AC=1;AN=2	GT:DP:HF:CILOW:CIUP	0/1:380:0.997:0.984:1.0
+chrMT	11251	.	A	G	.	PASS	AC=1;AN=2	GT:DP:HF:CILOW:CIUP	0/1:295:0.976:0.951:0.989
+chrMT	14766	.	C	T	.	PASS	AC=1;AN=2	GT:DP:HF:CILOW:CIUP	0/1:272:0.985:0.961:0.996
+chrMT	15326	.	A	G	.	PASS	AC=1;AN=2	GT:DP:HF:CILOW:CIUP	0/1:333:0.982:0.96:0.993
+chrMT	15928	.	G	A	.	PASS	AC=1;AN=2	GT:DP:HF:CILOW:CIUP	0/1:338:0.997:0.982:1.0

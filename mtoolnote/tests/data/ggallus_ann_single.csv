@@ -1,0 +1,2 @@
+CHROM,POS,ID,REF,ALT,QUAL,AC,AN,Locus,dbSNP,Consequence,FILTER_PASS,numalt,altlen,is_snp
+NC_001323.1,240,.,T,C,.,2,4,ENSGALG00000032059,rs3137313,upstream_gene_variant,True,1,0,True
