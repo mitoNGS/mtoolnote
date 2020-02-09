@@ -232,6 +232,8 @@ pyvenv.cfg
 pip-selfcheck.json
 
 envs
-tests/data/test.vcf
-tests/data/test.csv
+mtoolnote/update*
+mtoolnote/data/tables
+mtoolnote/tests/data/test.vcf
+mtoolnote/tests/data/test.csv
 .vscode
