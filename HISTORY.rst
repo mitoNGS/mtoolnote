@@ -28,3 +28,10 @@ History
 
 * Add haplogroup-specific allele frequencies to final annotations (fix #4);
 * Add external predictors to final annotations (fix #5).
+
+0.1.5 (2020-02-09)
+------------------
+
+* Add locus name to basic information even for non-annotated human variants;
+* Update requirements;
+* Restructure code.
