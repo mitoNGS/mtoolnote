@@ -6,9 +6,9 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 from mtoolnote.classes import Annotator, Field, Variant, Parser
-from mtoolnote.constants import HUMAN_HEADERS, MT_POS_DICT
+from mtoolnote.constants import HUMAN_HEADERS
 from mtoolnote.models import (
-    Main, CrossRef, Predict, Variab,
+    Main, CrossRef, Predict, Variab, Loci,
     Haplo_A, Haplo_B, Haplo_D, Haplo_G, Haplo_JT, Haplo_L0, Haplo_L1,
     Haplo_L2, Haplo_L3_star, Haplo_L4, Haplo_L5, Haplo_L6, Haplo_M7, Haplo_M8,
     Haplo_M9, Haplo_M_star, Haplo_N1, Haplo_N2, Haplo_N9, Haplo_N_star,
@@ -44,11 +44,17 @@ class HumanVariant(Variant):
     @property
     def _locus(self) -> str:
         """Return the locus to which the variant belongs."""
-        locus = "DLOOP"
-        for key, pos in MT_POS_DICT.items():
-            if self.position in pos:
-                locus = key
-                break
+        query = (self.session.query(Loci)
+                 .filter(Loci.nt_start <= self.position,
+                         Loci.nt_end >= self.position)
+                 .first())
+        try:
+            locus_name = query.to_dict().get("locus", ".")
+            locus_desc = query.to_dict().get("description", ".")
+            locus = f"{locus_name} ({locus_desc})"
+        except AttributeError:
+            locus = "."
+
         return locus
 
     def _query_frequency(self):
