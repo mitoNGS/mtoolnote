@@ -373,7 +373,8 @@ class Loci(Base):
 
     def to_dict(self):
         return {
-            "id": self.id, "group": self.group, "locus": self.locus,
+            # "id": self.id, "group": self.group,
+            "locus": self.locus,
             "nt_start": self.nt_start, "nt_end": self.nt_end,
             "description": self.description, "length": self.length,
             "dna_seq": self.dna_seq, "aa_seq": self.aa_seq

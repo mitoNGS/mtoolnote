@@ -2,8 +2,11 @@
 # -*- coding: UTF-8 -*-
 # Created by Roberto Preste
 from collections import namedtuple
+from pkg_resources import resource_filename
 import unittest
-from unittest.mock import Mock, patch
+
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
 
 from mtoolnote.human import HumanVariant
 
@@ -14,12 +17,15 @@ class TestHumanVariant(unittest.TestCase):
         self.alternate_tup = namedtuple("Alternate", "type value")
         self.snp_alt = self.alternate_tup(type="SNP", value="T")
 
-        self.session = Mock()
+        _dbfile = resource_filename(__name__, "../data/hmtvar.db")
+        engine = create_engine(f"sqlite:///{_dbfile}")
+        Session = sessionmaker(bind=engine)
+        self.session = Session()
         self.variant = HumanVariant("C", 3000, self.snp_alt, self.session)
 
     def test__locus(self):
         # Given
-        expected = "RNR2"
+        expected = "MT-RNR2 (16S Ribosomal RNA)"
 
         # When
         result = self.variant._locus
@@ -34,13 +40,11 @@ class TestHumanVariant(unittest.TestCase):
             "ref_rCRS": "C",
             "alt": self.snp_alt,
             "nt_end": 3000,
-            "locus": "RNR2"
+            "locus": "MT-RNR2 (16S Ribosomal RNA)"
         }
 
         # When
-        with patch("mtoolnote.human.HumanVariant._snp_query") as query:
-            query.return_value = None
-            result = self.variant.response()
+        result = self.variant.response()
 
         # Then
         self.assertEqual(expected, result)
