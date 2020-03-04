@@ -32,6 +32,11 @@ History
 0.1.5 (2020-02-09)
 ------------------
 
-* Add locus name to basic information even for non-annotated human variants;
-* Update requirements;
+* Add locus name to basic information even for non-annotated human variants (fix #14);
+* Update requirements (fix #17);
 * Restructure code.
+
+0.1.6 (2020-03-04)
+------------------
+
+* Use the Loci table to provide basic locus annotations (fix #22).
