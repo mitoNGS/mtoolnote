@@ -8,7 +8,7 @@ from sqlalchemy.orm import sessionmaker
 from mtoolnote.classes import Annotator, Field, Variant, Parser
 from mtoolnote.constants import HUMAN_HEADERS
 from mtoolnote.models import (
-    Main, CrossRef, Predict, Variab, Loci,
+    Main, CrossRef, Predict, Variab, Loci, Func_Loci,
     Haplo_A, Haplo_B, Haplo_D, Haplo_G, Haplo_JT, Haplo_L0, Haplo_L1,
     Haplo_L2, Haplo_L3_star, Haplo_L4, Haplo_L5, Haplo_L6, Haplo_M7, Haplo_M8,
     Haplo_M9, Haplo_M_star, Haplo_N1, Haplo_N2, Haplo_N9, Haplo_N_star,
@@ -47,6 +47,22 @@ class HumanVariant(Variant):
         query = (self.session.query(Loci)
                  .filter(Loci.nt_start <= self.position,
                          Loci.nt_end >= self.position)
+                 .first())
+        try:
+            locus_name = query.to_dict().get("locus", ".")
+            locus_desc = query.to_dict().get("description", ".")
+            locus = f"{locus_name} ({locus_desc})"
+        except AttributeError:
+            locus = "."
+
+        return locus
+
+    @property
+    def _func_locus(self):
+        """Return the functional locus to which the variant belongs."""
+        query = (self.session.query(Func_Loci)
+                 .filter(Func_Loci.nt_start <= self.position,
+                         Func_Loci.nt_end >= self.position)
                  .first())
         try:
             locus_name = query.to_dict().get("locus", ".")
@@ -133,7 +149,8 @@ class HumanVariant(Variant):
                 "ref_rCRS": self.reference,
                 "alt": self.alternate,
                 "nt_end": self.position,
-                "locus": self._locus
+                "locus": self._locus,
+                "func_locus": self._func_locus
             }
 
         idx = query_main.id
@@ -143,13 +160,22 @@ class HumanVariant(Variant):
                          .filter(Predict.id == idx).first())
         query_variab = (self.session.query(Variab)
                         .filter(Variab.id == idx).first())
-        query_haplos = self._query_frequency()
 
-        return {**query_main.to_dict(),
-                **query_crossref.to_dict(),
-                **query_predict.to_dict(),
-                **query_variab.to_dict(),
-                **query_haplos}
+        mains = query_main.to_dict()
+        crossrefs = query_crossref.to_dict()
+        predicts = query_predict.to_dict()
+        variabs = query_variab.to_dict()
+        haplos = self._query_frequency()
+
+        # TODO: Adding func_locus here, but it really should be part of the
+        #   Main model
+        mains["func_locus"] = self._func_locus
+
+        return {**mains,
+                **crossrefs,
+                **predicts,
+                **variabs,
+                **haplos}
 
     def __repr__(self):
         return ("{}(reference={!r}, position={!r}, alternate={!r}, "

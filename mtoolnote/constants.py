@@ -4,6 +4,8 @@
 
 HEADERS_MAIN = (
     ("Locus", "locus", "Locus to which the variant belongs"),
+    ("FunctionalLocus", "func_locus",
+     "Functional locus to which the variant belongs"),
     ("CodonPosition", "codon_position", "Codon position of the variant"),
     ("AaChange", "aa_change", "Aminoacidic change determined"),
     ("Pathogenicity", "pathogenicity", "Pathogenicity predicted by HmtVar"))
