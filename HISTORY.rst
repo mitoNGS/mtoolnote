@@ -40,3 +40,8 @@ History
 ------------------
 
 * Use the Loci table to provide basic locus annotations (fix #22).
+
+0.1.7 (2020-04-04)
+------------------
+
+* Add functional locus annotations using the FuncLoci table (fix #24).
