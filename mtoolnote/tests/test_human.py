@@ -21,11 +21,11 @@ class TestHumanVariant(unittest.TestCase):
         engine = create_engine(f"sqlite:///{_dbfile}")
         Session = sessionmaker(bind=engine)
         self.session = Session()
-        self.variant = HumanVariant("C", 3000, self.snp_alt, self.session)
+        self.variant = HumanVariant("C", 3230, self.snp_alt, self.session)
 
     def test__locus(self):
         # Given
-        expected = "MT-RNR2 (16S Ribosomal RNA)"
+        expected = "MT-TL1 (tRNA Leucine 1)"
 
         # When
         result = self.variant._locus
@@ -33,14 +33,25 @@ class TestHumanVariant(unittest.TestCase):
         # Then
         self.assertEqual(expected, result)
 
+    def test__func_locus(self):
+        # Given
+        expected = "MT-TER (Transcription terminator)"
+
+        # When
+        result = self.variant._func_locus
+
+        # Then
+        self.assertEqual(expected, result)
+
     def test_response(self):
         # Given
         expected = {
-            "nt_start": 3000,
+            "nt_start": 3230,
             "ref_rCRS": "C",
             "alt": self.snp_alt,
-            "nt_end": 3000,
-            "locus": "MT-RNR2 (16S Ribosomal RNA)"
+            "nt_end": 3230,
+            "locus": "MT-TL1 (tRNA Leucine 1)",
+            "func_locus": "MT-TER (Transcription terminator)"
         }
 
         # When
