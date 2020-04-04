@@ -215,7 +215,7 @@ class HumanAnnotator(Annotator):
         to_csv()
     """
     _HEADERS = HUMAN_HEADERS
-    _dbfile = resource_filename(__name__, "data/hmtvar.db")
+    _dbfile = resource_filename(__name__, "data/mtoolnote.db")
     engine = create_engine(f"sqlite:///{_dbfile}")
     Session = sessionmaker(bind=engine)
 

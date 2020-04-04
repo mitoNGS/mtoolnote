@@ -17,7 +17,7 @@ class TestHumanVariant(unittest.TestCase):
         self.alternate_tup = namedtuple("Alternate", "type value")
         self.snp_alt = self.alternate_tup(type="SNP", value="T")
 
-        _dbfile = resource_filename(__name__, "../data/hmtvar.db")
+        _dbfile = resource_filename(__name__, "../data/mtoolnote.db")
         engine = create_engine(f"sqlite:///{_dbfile}")
         Session = sessionmaker(bind=engine)
         self.session = Session()
