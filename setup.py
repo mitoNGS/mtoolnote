@@ -40,7 +40,7 @@ setup(  # pragma: no cover
     long_description_content_type="text/x-rst",
     keywords="mtoolnote",
     name="mtoolnote",
-    packages=find_packages(include=["mtoolnote"]),
+    packages=find_packages(include=["mtoolnote"], exclude=["ci"]),
     include_package_data=True,
     setup_requires=setup_requirements,
     test_suite="tests",
