@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 # Created by Roberto Preste
-from pkg_resources import resource_filename
 import os
+from pkg_resources import resource_filename
 import shutil
 import subprocess
 
