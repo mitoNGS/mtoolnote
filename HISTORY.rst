@@ -45,3 +45,8 @@ History
 ------------------
 
 * Add functional locus annotations using the FuncLoci table (fix #24).
+
+0.2.0 (2020-04-08)
+==================
+
+* Add options to choose specific annotations to include in human data (fix #28).
