@@ -13,15 +13,25 @@ from mtoolnote.nonhuman import NonHumanAnnotator
 @click.version_option()
 @click.argument("input_vcf")
 @click.argument("output_vcf")
-@click.option("--species", "-s", default="human",
+@click.option("--species", "-s", default="human", show_default=True,
               type=click.Choice(("human", ) + SPECIES),
-              help="Species to use for annotation (default: human)")
-@click.option("--csv", "-c", is_flag=True, default=False,
-              help="Create an additional annotated CSV file (default: False)")
-def main(input_vcf, output_vcf, species, csv):
+              help="Species to use for annotation")
+@click.option("--csv", "-c", is_flag=True, default=False, show_default=True,
+              help="Create an additional annotated CSV file")
+@click.option("--crossref/--no-crossref", default=True, show_default=True,
+              help="Add cross-reference annotations")
+@click.option("--predict/--no-predict", default=True, show_default=True,
+              help="Add pathogenicity prediction annotations")
+@click.option("--variab/--no-variab", default=True, show_default=True,
+              help="Add nucleotide variability annotations")
+@click.option("--haplos/--no-haplos", default=True, show_default=True,
+              help="Add haplogroup-specific allele frequency annotations")
+def main(input_vcf, output_vcf, species, csv, crossref, predict, variab,
+         haplos):
     """Annotate a VCF file using mtoolnote."""
     if species == "human":
-        vcf = HumanAnnotator(input_vcf, output_vcf)
+        vcf = HumanAnnotator(input_vcf, output_vcf, crossref=crossref,
+                             predict=predict, variab=variab, haplos=haplos)
     else:
         vcf = NonHumanAnnotator(input_vcf, output_vcf, species)
 
