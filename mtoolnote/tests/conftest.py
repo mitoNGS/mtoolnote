@@ -5,7 +5,8 @@ import pytest
 import os
 
 from mtoolnote.tests.constants import (
-    HUMAN, HUMAN_ANN, HUMAN_ANN_CSV, GGALLUS, GGALLUS_ANN, GGALLUS_ANN_CSV
+    HUMAN, HUMAN_ANN, HUMAN_ANN_CSV, HUMAN_ANN_HAPLOS, HUMAN_ANN_HAPLOS_CSV,
+    GGALLUS, GGALLUS_ANN, GGALLUS_ANN_CSV
 )
 
 
@@ -27,6 +28,20 @@ def human_ann_vcf():
 def human_ann_csv():
     """Open the annotated human csv."""
     with open(HUMAN_ANN_CSV) as f:
+        yield f
+
+
+@pytest.fixture
+def human_ann_haplos_vcf():
+    """Open the haplos annotated human vcf."""
+    with open(HUMAN_ANN_HAPLOS) as f:
+        yield f
+
+
+@pytest.fixture
+def human_ann_haplos_csv():
+    """Open the haplos annotated human csv."""
+    with open(HUMAN_ANN_HAPLOS_CSV) as f:
         yield f
 
 

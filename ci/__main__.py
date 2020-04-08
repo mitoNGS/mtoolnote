@@ -12,7 +12,9 @@ from sqlalchemy import create_engine
 
 from mtoolnote.models import Base
 from mtoolnote.mtoolnote import annotate
-from mtoolnote.tests.constants import HUMAN, HUMAN_ANN, GGALLUS, GGALLUS_ANN
+from mtoolnote.tests.constants import (
+    HUMAN, HUMAN_ANN, HUMAN_ANN_HAPLOS, GGALLUS, GGALLUS_ANN
+)
 
 
 @click.group()
@@ -74,6 +76,8 @@ def create_suite():
 
     click.echo("\n--- Human VCF/CSV test files ---\n")
     annotate(HUMAN, HUMAN_ANN, csv=True)
+    annotate(HUMAN, HUMAN_ANN_HAPLOS, csv=True, crossref=False, predict=False,
+             variab=False)
     click.echo("\tAnnotation complete.")
 
     click.echo("\n--- Ggallus VCF/CSV test files ---\n")

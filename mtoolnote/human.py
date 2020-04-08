@@ -37,9 +37,14 @@ class HumanVariant(Variant):
                Haplo_N9, Haplo_N_star, Haplo_R0, Haplo_R9, Haplo_R_star,
                Haplo_U, Haplo_X)
 
-    def __init__(self, reference, position, alternate, session):
+    def __init__(self, reference, position, alternate, session,
+                 crossref=True, predict=True, variab=True, haplos=True):
         super().__init__(reference, position, alternate)
         self.session = session
+        self.crossref = crossref
+        self.predict = predict
+        self.variab = variab
+        self.haplos = haplos
 
     @property
     def _locus(self) -> str:
@@ -154,18 +159,27 @@ class HumanVariant(Variant):
             }
 
         idx = query_main.id
-        query_crossref = (self.session.query(CrossRef)
-                          .filter(CrossRef.id == idx).first())
-        query_predict = (self.session.query(Predict)
-                         .filter(Predict.id == idx).first())
-        query_variab = (self.session.query(Variab)
-                        .filter(Variab.id == idx).first())
+        crossrefs = {}
+        predicts = {}
+        variabs = {}
+        haplos = {}
+
+        if self.crossref:
+            query_crossref = (self.session.query(CrossRef)
+                              .filter(CrossRef.id == idx).first())
+            crossrefs = query_crossref.to_dict()
+        if self.predict:
+            query_predict = (self.session.query(Predict)
+                             .filter(Predict.id == idx).first())
+            predicts = query_predict.to_dict()
+        if self.variab:
+            query_variab = (self.session.query(Variab)
+                            .filter(Variab.id == idx).first())
+            variabs = query_variab.to_dict()
+        if self.haplos:
+            haplos = self._query_frequency()
 
         mains = query_main.to_dict()
-        crossrefs = query_crossref.to_dict()
-        predicts = query_predict.to_dict()
-        variabs = query_variab.to_dict()
-        haplos = self._query_frequency()
 
         # TODO: Adding func_locus here, but it really should be part of the
         #   Main model
@@ -201,9 +215,14 @@ class HumanParser(Parser):
         parse()
     """
 
-    def __init__(self, record, headers, session):
+    def __init__(self, record, headers, session,
+                 crossref=True, predict=True, variab=True, haplos=True):
         super().__init__(record, headers)
         self.session = session
+        self.crossref = crossref
+        self.predict = predict
+        self.variab = variab
+        self.haplos = haplos
 
     def parse(self):
         """Parse response from HumanVariant and store them in the headers.
@@ -211,7 +230,9 @@ class HumanParser(Parser):
         If no results are retrieved a single . is returned.
         """
         variants = [HumanVariant(self.record.REF, self.record.POS, alt,
-                                 self.session)
+                                 self.session, crossref=self.crossref,
+                                 predict=self.predict, variab=self.variab,
+                                 haplos=self.haplos)
                     for alt in self.record.ALT]
         for variant in variants:
             response = variant.response()
@@ -245,9 +266,14 @@ class HumanAnnotator(Annotator):
     engine = create_engine(f"sqlite:///{_dbfile}")
     Session = sessionmaker(bind=engine)
 
-    def __init__(self, input_vcf, output_vcf):
+    def __init__(self, input_vcf, output_vcf,
+                 crossref=True, predict=True, variab=True, haplos=True):
         super().__init__(input_vcf, output_vcf, self._HEADERS)
         self.session = self.Session()
+        self.crossref = crossref
+        self.predict = predict
+        self.variab = variab
+        self.haplos = haplos
 
     def annotate(self):
         """Annotate variants found in the input vcf."""
@@ -255,7 +281,10 @@ class HumanAnnotator(Annotator):
             self._n_alleles.append(len(record.ALT))
             fields = [Field(head[0], head[1], head[2]) for head in self.headers]
             if self._is_variation(record):
-                annots = HumanParser(record, fields, self.session)
+                annots = HumanParser(record, fields, self.session,
+                                     crossref=self.crossref,
+                                     predict=self.predict, variab=self.variab,
+                                     haplos=self.haplos)
                 annots.parse()
                 for field in fields:
                     record.INFO[field.element] = field.values
